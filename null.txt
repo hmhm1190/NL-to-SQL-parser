@@ -1,0 +1,13 @@
+0it [00:00, ?it/s]1it [00:00, 165.21it/s]
+/home/husainmalwat/anaconda3/envs/RESDSQL/lib/python3.8/site-packages/torch/cuda/__init__.py:82: UserWarning: CUDA initialization: CUDA driver initialization failed, you might not have a CUDA gpu. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646755903507/work/c10/cuda/CUDAFunctions.cpp:112.)
+  return torch._C._cuda_getDeviceCount() > 0
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:01<00:00,  1.31s/it]100%|██████████| 1/1 [00:01<00:00,  1.31s/it]
+/home/husainmalwat/anaconda3/envs/RESDSQL/lib/python3.8/site-packages/torch/cuda/__init__.py:82: UserWarning: CUDA initialization: CUDA driver initialization failed, you might not have a CUDA gpu. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646755903507/work/c10/cuda/CUDAFunctions.cpp:112.)
+  return torch._C._cuda_getDeviceCount() > 0
+Namespace(batch_size=16, db_path='./database', dev_filepath='./data/preprocessed_data/resdsql_test.json', device='0', epochs=128, gradient_descent_step=4, learning_rate=3e-05, mode='eval', model_name_or_path='t5-3b', num_beams=8, num_return_sequences=8, original_dev_filepath='./data/spider/dev.json', output='./predictions/Spider-dev/resdsql_base/pred.sql', save_path='./models/text2sql-t5-base/checkpoint-39312', seed=42, tables_for_natsql='NatSQL/NatSQLv1_6/tables_for_natsql.json', target_type='sql', tensorboard_save_path='tensorboard_log/text2sql', train_filepath='data/preprocessed_data/resdsql_train_spider.json', use_adafactor=False)
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:06<00:00,  6.87s/it]100%|██████████| 1/1 [00:06<00:00,  6.87s/it]
+select singer.name , concert.concert_name from singer_in_concert join concert on singer_in_concert.concert_id = concert.concert_id
+no such column: singer.name
+Text-to-SQL inference spends 9.691994190216064s.
+exact_match score: 0.0
+exec score: 0
