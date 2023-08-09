@@ -27,8 +27,8 @@ with open('/home/husainmalwat/RESDSQL/null.txt', 'w') as null_file:
     subprocess.run(['sh', shell_file_path], stdout=null_file, stderr=null_file)
 
 
-file_path = '/home/husainmalwat/RESDSQL/predictions/Spider-dev/resdsql_base/pred.sql'
-print("--------------------------------------------------------------------------------------------")
+file_path = '/home/husainmalwat/RESDSQL/predictions/Spider-dev/resdsql_large/pred.sql'
+print("----------------------------------------------------------------------------")
 with open(file_path, 'r') as file:
     file_contents = file.read()
     print("SQL QUERY: ",file_contents)

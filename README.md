@@ -10,6 +10,8 @@
 
 
 ## Prerequisites
+PyTorch models requires GPU compute capability > 3.7
+
 Create a virtual anaconda environment:
 ```sh
 conda create -n your_env_name python=3.8.5
@@ -70,5 +72,14 @@ The inference scripts are located in `scripts/inference`.
 sh scripts/inference/infer_text2sql.sh large spider
 ```
 The first argument (model scale) can be selected from `[base, large, 3b]` and the second argument (dataset name) can be selected from `[spider, spider-realistic, spider-syn, spider-dk, DB_schema_synonym, DB_schema_abbreviation, DB_DBcontent_equivalence, NLQ_keyword_synonym, NLQ_keyword_carrier, NLQ_column_synonym, NLQ_column_carrier, NLQ_column_attribute, NLQ_column_value, NLQ_value_synonym, NLQ_multitype, NLQ_others, SQL_comparison, SQL_sort_order, SQL_NonDB_number, SQL_DB_text, SQL_DB_number]`.
+
+The predicted SQL queries are recorded in `predictions/{dataset_name}/{model_name}/pred.sql`.
+
+
+### Step2: Run Commandline Ques-Answering
+The IO file is located in `/RESDSQL/Files/IO.py`. 
+
+The IO file takes two input: Enter the databse name and inout NL query.
+The predicted SQL queries= will be shown on the output screen.
 
 The predicted SQL queries are recorded in `predictions/{dataset_name}/{model_name}/pred.sql`.
