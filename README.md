@@ -76,7 +76,7 @@ The first argument (model scale) can be selected from `[base, large, 3b]` and th
 The predicted SQL queries are recorded in `predictions/{dataset_name}/{model_name}/pred.sql`.
 
 
-### Step2: Run Commandline Ques-Answering
+### Step3: Run Commandline Ques-Answering
 The IO file is located in `/RESDSQL/Files/IO.py`. 
 
 The IO file takes two input: Enter the databse name and inout NL query.
