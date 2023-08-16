@@ -44,10 +44,7 @@ cd ..
 ```
 
 ## Prepare data
-Download [data](https://drive.google.com/file/d/19tsgBGAxpagULSl9r85IFKIZb4kyBGGu/view?usp=sharing) **(including Spider, Spider-DK, Spider-Syn, Spider-Realistic, Dr.Spider, and CSpider)** and [database](https://drive.google.com/file/d/1s4ItreFlTa8rUdzwVRmUR2Q9AHnxbNjo/view?usp=share_link) and then unzip them:
-```sh
-unzip data.zip
-unzip database.zip
+Download [data] and [database] from: https://iitgnacin-my.sharepoint.com/:f:/g/personal/husainmalwat_iitgn_ac_in/EmKXkgDNYntMkffKcO2N2egBsBbhSz9cXR-EOm6ucS3Giw?e=ZBlEbW
 ```
 
 ## Inference
@@ -83,3 +80,8 @@ The IO file takes two input: Enter the databse name and inout NL query.
 The predicted SQL queries= will be shown on the output screen.
 
 The predicted SQL queries are recorded in `predictions/{dataset_name}/{model_name}/pred.sql`.
+
+#Final Commandline IO
+###Step1: Add your database to the datbase folder in the form of SQLite file(You can use mySQL to SQLite converter from `/files`).
+###Step2: Generate the tables.json file for your datbase(You can use tables_json converter located in `/files`).
+ 
