@@ -17,17 +17,17 @@ data = [
 ]
 
 
-file_path = "/home/husainmalwat/RESDSQL/data/spider/dev.json"
+file_path = "/home/husainmalwat/NL-to-SQL-parser/data/spider/dev.json"
 with open(file_path, "w") as json_file:
     json.dump(data, json_file, indent=4)
 
 
-shell_file_path = '/home/husainmalwat/RESDSQL/scripts/inference/infer_text2sql.sh'
+shell_file_path = '/home/husainmalwat/NL-to-SQL-parser/scripts/inference/infer_text2sql.sh'
 with open('/home/husainmalwat/RESDSQL/null.txt', 'w') as null_file:
     subprocess.run(['sh', shell_file_path], stdout=null_file, stderr=null_file)
 
 
-file_path = '/home/husainmalwat/RESDSQL/predictions/Spider-dev/resdsql_large/pred.sql'
+file_path = '/home/husainmalwat/NL-to-SQL-parser/predictions/Spider-dev/resdsql_large/pred.sql'
 print("----------------------------------------------------------------------------")
 with open(file_path, 'r') as file:
     file_contents = file.read()
