@@ -13,7 +13,7 @@ from torch.utils.data import DataLoader
 from transformers import T5TokenizerFast, T5ForConditionalGeneration, MT5ForConditionalGeneration
 from transformers.optimization import Adafactor
 from transformers.trainer_utils import set_seed
-from utils.spider_metric.evaluator import EvaluateTool
+# from utils.spider_metric.evaluator import EvaluateTool
 from utils.load_dataset import Text2SQLDataset
 from utils.text2sql_decoding_utils import decode_sqls, decode_natsqls
 
@@ -334,15 +334,15 @@ def _test(opt):
     end_time = time.time()
     print("Text-to-SQL inference spends {}s.".format(end_time-start_time))
     
-    if opt.mode == "eval":
-        # initialize evaluator
-        evaluator = EvaluateTool()
-        evaluator.register_golds(opt.original_dev_filepath, opt.db_path)
-        spider_metric_result = evaluator.evaluate(predict_sqls)
-        print('exact_match score: {}'.format(spider_metric_result["exact_match"]))
-        print('exec score: {}'.format(spider_metric_result["exec"]))
+    # if opt.mode == "eval":
+    #     # initialize evaluator
+    #     evaluator = EvaluateTool()
+    #     evaluator.register_golds(opt.original_dev_filepath, opt.db_path)
+    #     spider_metric_result = evaluator.evaluate(predict_sqls)
+    #     print('exact_match score: {}'.format(spider_metric_result["exact_match"]))
+    #     print('exec score: {}'.format(spider_metric_result["exec"]))
     
-        return spider_metric_result["exact_match"], spider_metric_result["exec"]
+    #     return spider_metric_result["exact_match"], spider_metric_result["exec"]
     
 if __name__ == "__main__":
     opt = parse_option()

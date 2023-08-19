@@ -9,10 +9,14 @@
 ### RESDSQL: Decoupling Schema Linking and Skeleton Parsing for Text-to-SQL
 
 
-## Prerequisites
-PyTorch models requires GPU compute capability > 3.7
+## Prerequisites:
+- PyTorch models requires GPU compute capability > 3.7
+- Convert your databse into SQLite form using sqlite_converter located in `/files` folder.
+- Generate the tables.json file for your datbase(You can use tables_json converter located in `/files` folder).
+- Install the required modules and tools using the following commands:
 
-Create a virtual anaconda environment:
+
+### 1. Set-up virtual anaconda environment:
 ```sh
 conda create -n your_env_name python=3.8.5
 ```
@@ -26,7 +30,7 @@ pip install -r requirements.txt
 pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz
 python nltk_downloader.py
 ```
-Create several folders:
+### 2. Create several folders:
 ```sh
 mkdir eval_results
 mkdir models
@@ -34,35 +38,36 @@ mkdir tensorboard_log
 mkdir third_party
 mkdir predictions
 ```
-Clone evaluation scripts:
+<!-- Clone evaluation scripts:
 ```sh
 cd third_party
 git clone https://github.com/ElementAI/spider.git
 git clone https://github.com/ElementAI/test-suite-sql-eval.git
 mv ./test-suite-sql-eval ./test_suite
 cd ..
-```
+``` -->
 
-## Prepare data
+### 3. Add data and databse files in the Spider format(https://yale-lily.github.io/spider)
+```sh
 Download [data] and [database] from: https://iitgnacin-my.sharepoint.com/:f:/g/personal/husainmalwat_iitgn_ac_in/EmKXkgDNYntMkffKcO2N2egBsBbhSz9cXR-EOm6ucS3Giw?e=ZBlEbW
 ```
 
-## Inference
-All evaluation results can be easily reproduced through our released scripts and checkpionts.
-### Step1: Prepare Checkpoints
-Because RESDSQL is a two-stage algorithm, therefore, you should first download cross-encoder checkpoints. Here are links: 
+### 4. Prepare Checkpoints:
 
+
+```sh 
 text2sql_schema_item_classifier: https://drive.google.com/file/d/1zHAhECq1uGPR9Rt1EDsTai1LbRx0jYIo/view?usp=share_link
-
-T5/mT5 Checkpoints: text2sql-t5-3b - https://drive.google.com/file/d/1M-zVeB6TKrvcIzaH8vHBIKeWqPn95i11/view?usp=sharing
-
+```
+```sh
 text2sql-t5-large - https://drive.google.com/file/d/1-xwtKwfJZSrmJrU-_Xdkx1kPuZao7r7e/view?usp=sharing
-
+###### OR ######
 text2sql-t5-base - https://drive.google.com/file/d/1lqZ81f_fSZtg6BRcRw1-Ol-RJCcKRsmH/view?usp=sharing 
-
+```
 The checkpoints should be placed in the `models` folder. 
 
-### Step2: Run Inference Script
+
+
+### 5. Run Inference Script
 The inference scripts are located in `scripts/inference`. 
 
 ```sh
@@ -73,15 +78,20 @@ The first argument (model scale) can be selected from `[base, large, 3b]` and th
 The predicted SQL queries are recorded in `predictions/{dataset_name}/{model_name}/pred.sql`.
 
 
-### Step3: Run Commandline Ques-Answering
+### 6. Run Commandline Ques-Answering
+
+### Commandline IO
+```sh
+- Step1: Add your database to the datbase folder in the form of SQLite file(You can use mySQL to SQLite converter from `/files`).
+- Step2: Generate the tables.json file for your datbase(You can use tables_json converter located in `/files`).
+```
+```sh
 The IO file is located in `/RESDSQL/Files/IO.py`. 
 
 The IO file takes two input: Enter the databse name and inout NL query.
 The predicted SQL queries= will be shown on the output screen.
 
 The predicted SQL queries are recorded in `predictions/{dataset_name}/{model_name}/pred.sql`.
+```
 
-#Final Commandline IO
-###Step1: Add your database to the datbase folder in the form of SQLite file(You can use mySQL to SQLite converter from `/files`).
-###Step2: Generate the tables.json file for your datbase(You can use tables_json converter located in `/files`).
  
