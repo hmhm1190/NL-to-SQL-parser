@@ -38,14 +38,14 @@ mkdir tensorboard_log
 mkdir third_party
 mkdir predictions
 ```
-<!-- Clone evaluation scripts:
+Clone evaluation scripts:
 ```sh
 cd third_party
 git clone https://github.com/ElementAI/spider.git
 git clone https://github.com/ElementAI/test-suite-sql-eval.git
 mv ./test-suite-sql-eval ./test_suite
 cd ..
-``` -->
+```
 
 ### 3. Add data and databse files in the Spider format(https://yale-lily.github.io/spider)
 ```sh
@@ -71,7 +71,7 @@ The checkpoints should be placed in the `models` folder.
 The inference scripts are located in `scripts/inference`. 
 
 ```sh
-sh scripts/inference/infer_text2sql.sh large spider
+sh scripts/inference/infer_text2sql.sh 
 ```
 The first argument (model scale) can be selected from `[base, large, 3b]` and the second argument (dataset name) can be selected from `[spider, spider-realistic, spider-syn, spider-dk, DB_schema_synonym, DB_schema_abbreviation, DB_DBcontent_equivalence, NLQ_keyword_synonym, NLQ_keyword_carrier, NLQ_column_synonym, NLQ_column_carrier, NLQ_column_attribute, NLQ_column_value, NLQ_value_synonym, NLQ_multitype, NLQ_others, SQL_comparison, SQL_sort_order, SQL_NonDB_number, SQL_DB_text, SQL_DB_number]`.
 

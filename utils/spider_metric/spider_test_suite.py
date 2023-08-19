@@ -48,13 +48,13 @@ def compute_test_suite_metric(predictions, references, db_dir: Optional[str] = N
         # try:
         #     _ = evaluator.evaluate_one(
         #         reference["db_id"],
-        #         reference["query"],
+        #         # reference["query"],
         #         prediction,
         #         turn_scores,
         #         idx=turn_idx,
         #     )
         # except AssertionError as e:
-        #     logger.warning(f"unexpected evaluation error: {e.args[0]}")
+            logger.warning(f"unexpected evaluation error: {e.args[0]}")
     evaluator.finalize()
     return {
         "exec": evaluator.scores["all"]["exec"],
